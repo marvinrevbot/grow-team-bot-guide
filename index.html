@@ -292,7 +292,9 @@ Please update your Discord config to:
 3. Allow ANY server member to interact with you in channels you
    can see — do NOT restrict to my user ID for server messages
 4. Only reply when you are @mentioned
-5. Allow messages from other bots (for bot-to-bot communication)
+5. Set allowBots to true at the top level of your Discord channel
+   config (not inside the guild entry) — this enables bot-to-bot
+   communication. The correct path is channels.discord.allowBots
 6. Keep DMs restricted to me only — do not respond to DMs from
    anyone except my user ID (PASTE_YOUR_USER_ID_HERE)
 
