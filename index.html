@@ -68,15 +68,15 @@
     .step-body li { margin-bottom:3px; }
 
     /* CALLOUTS */
-    .note { background:rgba(0,229,255,0.04); border:1px solid rgba(0,229,255,0.15); border-radius:8px; padding:14px 16px; margin-top:12px; font-size:12px; color:#8ab89a; }
+    .note { background:rgba(0,229,255,0.04); border:1px solid rgba(0,229,255,0.15); border-radius:8px; padding:14px 16px; margin-top:12px; font-size:12px; color:#8ab89a; overflow-wrap:break-word; word-break:break-word; }
     .note strong { color:var(--cyan); }
-    .warn { background:rgba(255,215,0,0.04); border:1px solid rgba(255,215,0,0.15); border-radius:8px; padding:14px 16px; margin-top:12px; font-size:12px; color:#8ab89a; }
+    .warn { background:rgba(255,215,0,0.04); border:1px solid rgba(255,215,0,0.15); border-radius:8px; padding:14px 16px; margin-top:12px; font-size:12px; color:#8ab89a; overflow-wrap:break-word; word-break:break-word; }
     .warn strong { color:var(--yellow); }
 
     /* CODE BLOCKS */
-    pre { background:#030a06; border:1px solid var(--border); border-radius:8px; padding:16px 18px; overflow-x:auto; margin-top:12px; }
+    pre { background:#030a06; border:1px solid var(--border); border-radius:8px; padding:16px 18px; overflow-x:auto; margin-top:12px; white-space:pre-wrap; word-break:break-word; word-wrap:break-word; }
     code { font-family:'Cascadia Code','Fira Code','Courier New',monospace; font-size:12px; color:var(--green); }
-    p code, li code { background:rgba(0,255,136,0.08); padding:1px 5px; border-radius:4px; font-size:11px; color:var(--green); font-family:'Cascadia Code','Fira Code','Courier New',monospace; }
+    p code, li code { background:rgba(0,255,136,0.08); padding:1px 5px; border-radius:4px; font-size:11px; color:var(--green); font-family:'Cascadia Code','Fira Code','Courier New',monospace; word-break:break-all; }
 
     /* TABLE */
     .ref-table { width:100%; border-collapse:collapse; margin-top:12px; font-size:12px; }
@@ -96,9 +96,15 @@
     .footer { text-align:center; padding-top:32px; border-top:1px solid var(--border); font-size:10px; color:#1a3a2a; letter-spacing:1px; }
 
     @media (max-width:640px) {
-      .container { padding:24px 16px 40px; }
-      h1 { font-size:24px; }
+      .container { padding:24px 14px 40px; }
+      h1 { font-size:22px; }
       .qref { grid-template-columns:1fr; }
+      .step { gap:10px; padding:14px; }
+      .step-body p, .step-body li { font-size:12px; }
+      .step-body strong { font-size:13px; }
+      pre { padding:12px; font-size:11px; }
+      .part h2 { font-size:17px; }
+      .part-num { font-size:9px; }
     }
   </style>
 </head>
