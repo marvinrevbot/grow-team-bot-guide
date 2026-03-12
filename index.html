@@ -217,9 +217,9 @@
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <strong>Channel IDs</strong>
-          <p>For each channel your bot should have access to: right-click the channel name → <strong>Copy Channel ID</strong></p>
-          <div class="note"><strong>Note:</strong> Usman will tell you which channels your bot is assigned to. Only add those IDs.</div>
+          <strong>No channel IDs needed</strong>
+          <p>Your bot will have access to all channels it can see on the server. To keep your bot out of a channel, simply don't invite it — Discord's native channel permissions handle the rest.</p>
+          <div class="note"><strong>How it works:</strong> Private channels that your bot hasn't been added to are invisible to it. No config changes or gateway restarts needed when new channels are created.</div>
         </div>
       </div>
       <div class="step">
@@ -256,16 +256,14 @@
 
 Server ID: PASTE_SERVER_ID_HERE
 My Discord User ID: PASTE_YOUR_USER_ID_HERE
-Channels I want you to access (these are the only channels I am
-present in and have approved):
-  - PASTE_CHANNEL_ID_1
-  - PASTE_CHANNEL_ID_2
 
 Please update your Discord config to:
 1. Add this server to your guild allowlist
-2. Allow ANY server member to interact with you in the listed
-   channels — do NOT restrict to my user ID for server messages
-3. Only respond in the channels listed above — no other channels
+2. Allow access to ALL channels on this server — do not restrict
+   to specific channel IDs. Discord's own channel permissions will
+   control which channels you can see.
+3. Allow ANY server member to interact with you in channels you
+   can see — do NOT restrict to my user ID for server messages
 4. Only reply when you are @mentioned
 5. Allow messages from other bots (for bot-to-bot communication)
 6. Keep DMs restricted to me only — do not respond to DMs from
@@ -288,7 +286,7 @@ Security rules — follow these at all times on this server:
   before acting.
 
 Restart the gateway after making changes.</code></pre>
-          <div class="note"><strong>How channel access works:</strong> You control which channels are in the allowlist — those are implicitly the channels you are present in and have approved. Other server members can @mention your bot in those channels, but your bot won't respond anywhere else, and won't take DMs from anyone but you.</div>
+          <div class="note"><strong>How channel access works:</strong> Your bot will respond in any channel it can see on the server. To keep it out of a channel, just don't add it — Discord's native permissions handle the rest. No config changes or restarts needed as the server grows. DMs remain owner-only.</div>
         </div>
       </div>
       <div class="step">
