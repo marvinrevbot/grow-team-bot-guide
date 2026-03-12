@@ -221,20 +221,23 @@
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <strong>Set the token via command line — not in chat</strong>
-          <p>Your bot token must be set directly on the machine running your bot. <strong>Do not send it as a chat message</strong> — that would expose it in your conversation history.</p>
-          <p style="margin-top:8px;">SSH into your bot's VM and run:</p>
-          <pre><code>openclaw config set channels.discord.token '"YOUR_BOT_TOKEN"' --json
-openclaw config set channels.discord.enabled true --json</code></pre>
-          <p style="font-size:12px;color:#8ab89a;margin-top:8px;">Replace <code>YOUR_BOT_TOKEN</code> with the token you copied in Part 2.</p>
+          <strong>Send your token to your bot via DM</strong>
+          <p>Message your bot directly (via Telegram or wherever you normally chat with it) and send:</p>
+          <pre><code>Please set my Discord bot token and enable Discord.
+My token is: YOUR_BOT_TOKEN_HERE
+
+Set channels.discord.token to this value and set
+channels.discord.enabled to true, then restart the gateway.</code></pre>
+          <div class="warn">
+            <strong>⚠️ Security note:</strong> Sending your token in a chat message means it will appear in your conversation history. This is a trade-off — treat your bot's chat interface as you would any trusted private channel, and reset your token from the Developer Portal immediately if you suspect it has been seen by anyone else.
+          </div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <strong>Restart the gateway</strong>
-          <pre><code>openclaw gateway restart</code></pre>
-          <p style="font-size:12px;color:#8ab89a;margin-top:6px;">The bot will now connect to Discord using your token.</p>
+          <strong>Confirm the bot restarted</strong>
+          <p>Your bot will confirm it has set the token and restarted the gateway. Once it confirms, your bot is connected to Discord and ready for the next steps.</p>
         </div>
       </div>
     </div>
@@ -437,7 +440,7 @@ Restart the gateway after making changes.</code></pre>
       </div>
       <div class="qref-item">
         <div class="qref-label">Set bot token</div>
-        <div class="qref-val">Via CLI on bot VM — never in chat<strong>openclaw config set channels.discord.token</strong></div>
+        <div class="qref-val">DM your bot with the token<strong>Reset it immediately if compromised</strong></div>
       </div>
       <div class="qref-item">
         <div class="qref-label">Required intent</div>
