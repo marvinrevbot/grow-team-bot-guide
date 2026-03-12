@@ -121,11 +121,13 @@
     <div class="toc-title">// Contents</div>
     <ol>
       <li><a href="#p1">Join the Server</a></li>
-      <li><a href="#p2">Invite Your Bot to the Server</a></li>
-      <li><a href="#p3">Collect the IDs You Need</a></li>
-      <li><a href="#p4">Configure Your Bot</a></li>
-      <li><a href="#p5">Restart & Test</a></li>
-      <li><a href="#p6">Quick Reference</a></li>
+      <li><a href="#p2">Create Your Bot Application</a></li>
+      <li><a href="#p3">Set Your Bot Token</a></li>
+      <li><a href="#p4">Invite Your Bot to the Server</a></li>
+      <li><a href="#p5">Collect Your IDs</a></li>
+      <li><a href="#p6">Tell Your Bot to Configure Itself</a></li>
+      <li><a href="#p7">Test It</a></li>
+      <li><a href="#p8">Quick Reference</a></li>
     </ol>
   </div>
 
@@ -161,22 +163,96 @@
   <div class="part" id="p2">
     <div class="part-header">
       <span class="part-num">Part 2</span>
+      <h2>Create Your Bot Application</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Create a new application</strong>
+          <p>Go to the <a href="https://discord.com/developers/applications" style="color:var(--cyan)">Discord Developer Portal</a> and click <strong>New Application</strong>. Name it after your bot (e.g. "Aria" or "Atlas").</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Set up the Bot</strong>
+          <p>Click <strong>Bot</strong> in the left sidebar. Set the <strong>Username</strong> to whatever you want your bot to be called on Discord.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Enable Privileged Gateway Intents</strong>
+          <p>Still on the <strong>Bot</strong> page, scroll down to <strong>Privileged Gateway Intents</strong> and enable:</p>
+          <div style="margin:10px 0 6px 0;display:flex;flex-direction:column;gap:8px;">
+            <div style="background:rgba(0,255,136,0.05);border:1px solid rgba(0,255,136,0.15);border-radius:6px;padding:10px 14px;font-size:12px;color:#8ab89a;">
+              <span style="color:var(--green);font-weight:700;">✅ Message Content Intent</span> — <strong style="color:#fff;">Required.</strong> Without this, your bot cannot read message content and will not respond.
+            </div>
+            <div style="background:rgba(0,229,255,0.04);border:1px solid rgba(0,229,255,0.12);border-radius:6px;padding:10px 14px;font-size:12px;color:#8ab89a;">
+              <span style="color:var(--cyan);font-weight:700;">✅ Server Members Intent</span> — Recommended. Required for user/role allowlists and name resolution.
+            </div>
+            <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:10px 14px;font-size:12px;color:#8ab89a;">
+              <span style="color:#8ab89a;font-weight:700;">◻ Presence Intent</span> — Optional. Only needed if your bot tracks member presence/status.
+            </div>
+          </div>
+          <p style="font-size:12px;color:#8ab89a;margin-top:8px;">Click <strong>Save Changes</strong> after toggling the intents.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Copy your bot token</strong>
+          <p>Scroll back up on the <strong>Bot</strong> page and click <strong>Reset Token</strong>. Copy the token and save it somewhere safe.</p>
+          <div class="warn"><strong>⚠️ Keep this secret.</strong> Treat your bot token like a password — never share it, post it in chat, or commit it to Git. If it leaks, reset it immediately from this page.</div>
+          <div class="note"><strong>Note:</strong> Despite the name, "Reset Token" generates your token for the first time — nothing is being reset if this is a new bot.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3 -->
+  <div class="part" id="p3">
+    <div class="part-header">
+      <span class="part-num">Part 3</span>
+      <h2>Set Your Bot Token</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Set the token via command line — not in chat</strong>
+          <p>Your bot token must be set directly on the machine running your bot. <strong>Do not send it as a chat message</strong> — that would expose it in your conversation history.</p>
+          <p style="margin-top:8px;">SSH into your bot's VM and run:</p>
+          <pre><code>openclaw config set channels.discord.token '"YOUR_BOT_TOKEN"' --json
+openclaw config set channels.discord.enabled true --json</code></pre>
+          <p style="font-size:12px;color:#8ab89a;margin-top:8px;">Replace <code>YOUR_BOT_TOKEN</code> with the token you copied in Part 2.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Restart the gateway</strong>
+          <pre><code>openclaw gateway restart</code></pre>
+          <p style="font-size:12px;color:#8ab89a;margin-top:6px;">The bot will now connect to Discord using your token.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 4 -->
+  <div class="part" id="p4">
+    <div class="part-header">
+      <span class="part-num">Part 4</span>
       <h2>Invite Your Bot to the Server</h2>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <strong>Go to the Discord Developer Portal</strong>
-          <p>Visit <a href="https://discord.com/developers/applications" style="color:var(--cyan)">discord.com/developers/applications</a> and click your bot application.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
           <strong>Generate an invite URL</strong>
           <ol>
-            <li>Click <strong>OAuth2</strong> in the left sidebar</li>
+            <li>Back in the <a href="https://discord.com/developers/applications" style="color:var(--cyan)">Developer Portal</a>, click your application → <strong>OAuth2</strong></li>
             <li>Under <strong>OAuth2 URL Generator</strong>, check: <code>bot</code> and <code>applications.commands</code></li>
             <li>Under <strong>Bot Permissions</strong>, check the following:</li>
           </ol>
@@ -196,13 +272,13 @@
               <div>✅ Add Reactions</div>
             </div>
           </div>
-          <ol style="list-style:none;padding:0;margin:0">
-            <li>Copy the generated URL at the bottom of the page</li>
+          <ol style="list-style:none;padding:0;margin:4px 0 0 0;font-size:13px;color:#8ab89a;">
+            <li>4. Copy the generated URL at the bottom of the page</li>
           </ol>
         </div>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-num">2</div>
         <div class="step-body">
           <strong>Add the bot to the server</strong>
           <p>Paste the URL into your browser. Select <strong>Grow Team Mission Control</strong> from the dropdown and click <strong>Authorize</strong>. Your bot will now appear in the server's member list.</p>
@@ -211,59 +287,44 @@
     </div>
   </div>
 
-  <!-- PART 3 -->
-  <div class="part" id="p3">
+  <!-- PART 5 -->
+  <div class="part" id="p5">
     <div class="part-header">
-      <span class="part-num">Part 3</span>
-      <h2>Collect the IDs You Need</h2>
+      <span class="part-num">Part 5</span>
+      <h2>Collect Your IDs</h2>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <strong>Server (Guild) ID</strong>
-          <p>Right-click the server icon in the left sidebar → <strong>Copy Server ID</strong></p>
+          <strong>Your Discord User ID</strong>
+          <p>Right-click your own username anywhere in Discord → <strong>Copy User ID</strong></p>
+          <div class="note">Developer Mode must be enabled (Part 1, Step 2) for this to appear.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <strong>Your Discord User ID</strong>
-          <p>Right-click your own username anywhere in Discord → <strong>Copy User ID</strong></p>
+          <strong>Server ID — already provided</strong>
+          <p>The Grow Team Mission Control server ID is pre-filled in the bot config message in Part 6:</p>
+          <pre><code>1481695985137614912</code></pre>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <strong>Server (Guild) ID — pre-filled for you</strong>
-          <p>The Rev.io Grow Team server ID is:</p>
-          <pre><code>1481695985137614912</code></pre>
-          <p>Use this in your bot config message in Part 4 — no need to copy it from Discord.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body">
           <strong>No channel IDs needed</strong>
-          <p>Your bot will have access to all channels it can see on the server. To keep your bot out of a channel, simply don't invite it — Discord's native channel permissions handle the rest.</p>
-          <div class="note"><strong>How it works:</strong> Private channels that your bot hasn't been added to are invisible to it. No config changes or gateway restarts needed when new channels are created.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-body">
-          <strong>Your Bot Token</strong>
-          <p>Back in the <a href="https://discord.com/developers/applications" style="color:var(--cyan)">Developer Portal</a> → your app → <strong>Bot</strong> → click <strong>Reset Token</strong> and copy it.</p>
-          <div class="warn"><strong>Keep this secret.</strong> Never share your bot token or commit it to Git. Treat it like a password.</div>
+          <p>Your bot will have access to all channels it can see. To restrict a channel, simply don't invite the bot to it — Discord's native permissions handle access control.</p>
+          <div class="note"><strong>How it works:</strong> Private channels the bot hasn't been added to are invisible to it. No config changes or restarts needed as new channels are added.</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PART 4 -->
-  <div class="part" id="p4">
+  <!-- PART 6 -->
+  <div class="part" id="p6">
     <div class="part-header">
-      <span class="part-num">Part 4</span>
+      <span class="part-num">Part 6</span>
       <h2>Tell Your Bot to Configure Itself</h2>
     </div>
     <div class="steps">
@@ -271,14 +332,14 @@
         <div class="step-num">1</div>
         <div class="step-body">
           <strong>Open a DM with your bot</strong>
-          <p>Message your bot directly — via Discord DM, Telegram, or wherever you normally chat with it.</p>
+          <p>Message your bot directly — via Telegram, or wherever you normally chat with it. Do not send this in a Discord channel.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
           <strong>Send it this message</strong>
-          <p>Paste the message below and fill in your actual IDs (collected in Part 3):</p>
+          <p>Paste the message below and replace <code>PASTE_YOUR_USER_ID_HERE</code> with your Discord User ID from Part 5:</p>
           <pre><code>I need you to join a new Discord server. Here are the details:
 
 Server ID: 1481695985137614912
@@ -315,32 +376,32 @@ Security rules — follow these at all times on this server:
   before acting.
 
 Restart the gateway after making changes.</code></pre>
-          <div class="note"><strong>How channel access works:</strong> Your bot will respond in any channel it can see on the server. To keep it out of a channel, just don't add it — Discord's native permissions handle the rest. No config changes or restarts needed as the server grows. DMs remain owner-only.</div>
-          <div class="warn"><strong>⚠️ Important — allowBots placement:</strong> Step 5 asks your bot to set <code>allowBots: true</code>. This must go at <code>channels.discord.allowBots</code> — the top level of the Discord config, <em>not</em> inside the guild entry. If your bot puts it in the wrong place, the gateway will crash on startup.</div>
+          <div class="note"><strong>Channel access:</strong> Your bot responds in any channel it can see. Keep it out of a channel by not adding it — no restarts needed as the server grows.</div>
+          <div class="warn"><strong>⚠️ allowBots placement:</strong> Step 5 above asks your bot to set <code>allowBots: true</code>. This must go at <code>channels.discord.allowBots</code> — the top level, <em>not</em> inside the guild entry. Wrong placement will crash the gateway on startup.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
           <strong>Confirm it worked</strong>
-          <p>Your bot should confirm the changes and let you know when it has restarted. If it asks clarifying questions, just answer them — it has everything it needs from the IDs you provided.</p>
+          <p>Your bot will confirm the changes and restart. If it asks questions, just answer — it has everything it needs from the IDs you provided.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PART 5 -->
-  <div class="part" id="p5">
+  <!-- PART 7 -->
+  <div class="part" id="p7">
     <div class="part-header">
-      <span class="part-num">Part 5</span>
-      <h2>Restart &amp; Test</h2>
+      <span class="part-num">Part 7</span>
+      <h2>Test It</h2>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <strong>Test it</strong>
-          <p>Once your bot confirms it has restarted, go to one of your allowlisted channels and type <code>@YourBotName hello</code> — your bot should respond.</p>
+          <strong>Test in the server</strong>
+          <p>Once your bot confirms it has restarted, go to any channel in Grow Team Mission Control and type <code>@YourBotName hello</code> — it should respond.</p>
         </div>
       </div>
       <div class="step">
@@ -348,9 +409,10 @@ Restart the gateway after making changes.</code></pre>
         <div class="step-body">
           <strong>If it doesn't respond</strong>
           <ul>
-            <li>Double-check the server ID and channel IDs are correct (easy to mix up)</li>
-            <li>Make sure the bot was actually added to the server (Part 2)</li>
-            <li>Ask your bot: <em>"Can you check your Discord config and confirm which servers and channels you're set up for?"</em></li>
+            <li>Confirm intents are enabled in the Developer Portal (Part 2, Step 3) — especially Message Content Intent</li>
+            <li>Make sure the bot was added to the server (Part 4)</li>
+            <li>Confirm the token was set correctly (Part 3) and the gateway restarted</li>
+            <li>Ask your bot: <em>"Can you check your Discord config and confirm which servers you're set up for?"</em></li>
             <li>Ping Usman if you're still stuck</li>
           </ul>
         </div>
@@ -358,10 +420,10 @@ Restart the gateway after making changes.</code></pre>
     </div>
   </div>
 
-  <!-- PART 6 — QUICK REF -->
-  <div class="part" id="p6">
+  <!-- PART 8 — QUICK REF -->
+  <div class="part" id="p8">
     <div class="part-header">
-      <span class="part-num">Part 6</span>
+      <span class="part-num">Part 8</span>
       <h2>Quick Reference</h2>
     </div>
     <div class="qref">
@@ -374,16 +436,20 @@ Restart the gateway after making changes.</code></pre>
         <div class="qref-val">Right-click your username<strong>→ Copy User ID</strong></div>
       </div>
       <div class="qref-item">
-        <div class="qref-label">Channel ID</div>
-        <div class="qref-val">Right-click channel name<strong>→ Copy Channel ID</strong></div>
+        <div class="qref-label">Set bot token</div>
+        <div class="qref-val">Via CLI on bot VM — never in chat<strong>openclaw config set channels.discord.token</strong></div>
       </div>
       <div class="qref-item">
-        <div class="qref-label">Bot Token</div>
-        <div class="qref-val">Developer Portal → Your App → Bot<strong>→ Reset Token</strong></div>
+        <div class="qref-label">Required intent</div>
+        <div class="qref-val">Developer Portal → Bot → Intents<strong>Message Content Intent ✅</strong></div>
+      </div>
+      <div class="qref-item">
+        <div class="qref-label">allowBots location</div>
+        <div class="qref-val">Top-level only<strong>channels.discord.allowBots</strong></div>
       </div>
       <div class="qref-item">
         <div class="qref-label">Stuck?</div>
-        <div class="qref-val">Ask your bot to check its Discord config<strong>or ping Usman</strong></div>
+        <div class="qref-val">Ask your bot to check its config<strong>or ping Usman</strong></div>
       </div>
     </div>
   </div>
