@@ -308,12 +308,24 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
+          <strong>Enable DMs from server members</strong>
+          <p>Discord blocks DMs from bots by default. You need to allow it before pairing will work.</p>
+          <ol>
+            <li>Right-click the <strong>Grow Team Mission Control</strong> server icon in the sidebar</li>
+            <li>Click <strong>Privacy Settings</strong></li>
+            <li>Toggle on <strong>Direct Messages</strong></li>
+          </ol>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
           <strong>DM your bot on Discord</strong>
           <p>Your bot is now in the server — find it in the member list, click its name, and send it a DM. Just "hello" is fine. It will respond with a <strong>pairing code</strong>.</p>
         </div>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-num">3</div>
         <div class="step-body">
           <strong>Approve the pairing code via another channel</strong>
           <p>Send the code to your bot on an existing channel — Telegram, or wherever you currently chat with it:</p>
@@ -323,7 +335,7 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
         </div>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-num">4</div>
         <div class="step-body">
           <strong>Confirm pairing</strong>
           <p>Your bot will confirm the pairing is approved. You can now chat with your bot via Discord DM — which is what you'll use in Part 7 to configure the server.</p>
@@ -351,7 +363,7 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
         <div class="step-num">2</div>
         <div class="step-body">
           <strong>Server ID — already provided</strong>
-          <p>The Grow Team Mission Control server ID is pre-filled in the bot config message in Part 6:</p>
+          <p>The Grow Team Mission Control server ID is pre-filled in the bot config message in Part 7:</p>
           <pre><code>1481695985137614912</code></pre>
         </div>
       </div>
@@ -377,14 +389,14 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
         <div class="step-num">1</div>
         <div class="step-body">
           <strong>Open a DM with your bot</strong>
-          <p>Message your bot directly — via Telegram, or wherever you normally chat with it. Do not send this in a Discord channel.</p>
+          <p>Message your bot directly — via Discord DM, Telegram, or wherever you normally chat with it. Do not send this in a server channel.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
           <strong>Send it this message</strong>
-          <p>Paste the message below and replace <code>PASTE_YOUR_USER_ID_HERE</code> with your Discord User ID from Part 5:</p>
+          <p>Paste the message below and replace <code>PASTE_YOUR_USER_ID_HERE</code> with your Discord User ID from Part 6:</p>
           <pre><code>I need you to join a new Discord server. Here are the details:
 
 Server ID: 1481695985137614912
@@ -398,9 +410,10 @@ Please update your Discord config to:
 3. Allow ANY server member to interact with you in channels you
    can see — do NOT restrict to my user ID for server messages
 4. Only reply when you are @mentioned
-5. Set allowBots to true at the top level of your Discord channel
-   config (not inside the guild entry) — this enables bot-to-bot
-   communication. The correct path is channels.discord.allowBots
+5. Set channels.discord.allowBots to true — this MUST go at the
+   top level of the Discord config, outside and separate from the
+   guilds block. Do NOT put it inside the guild entry or it will
+   crash the gateway.
 6. Keep DMs restricted to me only — do not respond to DMs from
    anyone except my user ID listed above
 
@@ -455,8 +468,9 @@ Restart the gateway after making changes.</code></pre>
           <strong>If it doesn't respond</strong>
           <ul>
             <li>Confirm intents are enabled in the Developer Portal (Part 2, Step 3) — especially Message Content Intent</li>
-            <li>Make sure the bot was added to the server (Part 5)</li>
-            <li>Confirm the token was set correctly (Part 3) and pairing completed (Part 4)</li>
+            <li>Make sure the bot was added to the server (Part 4)</li>
+            <li>Confirm the token was set correctly (Part 3) and pairing completed (Part 5)</li>
+            <li>Ask your bot: <em>"Can you run openclaw doctor and tell me if there are any issues with your Discord config?"</em></li>
             <li>Ask your bot: <em>"Can you check your Discord config and confirm which servers you're set up for?"</em></li>
             <li>Ping Usman if you're still stuck</li>
           </ul>
