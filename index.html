@@ -250,7 +250,7 @@
         </div>
       </div>
       <div class="step">
-        <div class="step-num">4</div>
+        <div class="step-num">5</div>
         <div class="step-body">
           <strong>Your Bot Token</strong>
           <p>Back in the <a href="https://discord.com/developers/applications" style="color:var(--cyan)">Developer Portal</a> → your app → <strong>Bot</strong> → click <strong>Reset Token</strong> and copy it.</p>
@@ -316,6 +316,7 @@ Security rules — follow these at all times on this server:
 
 Restart the gateway after making changes.</code></pre>
           <div class="note"><strong>How channel access works:</strong> Your bot will respond in any channel it can see on the server. To keep it out of a channel, just don't add it — Discord's native permissions handle the rest. No config changes or restarts needed as the server grows. DMs remain owner-only.</div>
+          <div class="warn"><strong>⚠️ Important — allowBots placement:</strong> Step 5 asks your bot to set <code>allowBots: true</code>. This must go at <code>channels.discord.allowBots</code> — the top level of the Discord config, <em>not</em> inside the guild entry. If your bot puts it in the wrong place, the gateway will crash on startup.</div>
         </div>
       </div>
       <div class="step">
