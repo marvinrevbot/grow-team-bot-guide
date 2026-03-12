@@ -129,8 +129,8 @@
       <li><a href="#p1">Join the Server</a></li>
       <li><a href="#p2">Create Your Bot Application</a></li>
       <li><a href="#p3">Set Your Bot Token</a></li>
-      <li><a href="#p4">Pair Discord with Your Bot</a></li>
-      <li><a href="#p5">Invite Your Bot to the Server</a></li>
+      <li><a href="#p4">Invite Your Bot to the Server</a></li>
+      <li><a href="#p5">Pair Discord with Your Bot</a></li>
       <li><a href="#p6">Collect Your IDs</a></li>
       <li><a href="#p7">Tell Your Bot to Configure Itself</a></li>
       <li><a href="#p8">Test It</a></li>
@@ -254,42 +254,6 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
   <div class="part" id="p4">
     <div class="part-header">
       <span class="part-num">Part 4</span>
-      <h2>Pair Discord with Your Bot</h2>
-    </div>
-    <div class="note" style="margin-bottom:16px;"><strong>Already using Discord with your bot?</strong> If you can already chat with your bot via Discord DM, skip to Part 5.</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <strong>DM your bot on Discord</strong>
-          <p>Find your bot in Discord and send it any message — just "hello" is fine. It will respond with a <strong>pairing code</strong>.</p>
-          <div class="note"><strong>Can't find your bot?</strong> You need to share a server with it first. Come back to this step after completing Part 5 (Invite Your Bot), then DM it from there.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <strong>Approve the pairing code via another channel</strong>
-          <p>Send the code to your bot on an existing channel — Telegram, or wherever you currently chat with it:</p>
-          <pre><code>Approve this Discord pairing code: PASTE_CODE_HERE</code></pre>
-          <p style="font-size:12px;color:#8ab89a;margin-top:8px;">Pairing codes expire after 1 hour. If yours expires, just DM your bot again to get a new one.</p>
-          <div class="note"><strong>Discord is your only channel?</strong> If you haven't set up any other channel with your bot yet, contact Usman — this step requires an existing connection to approve the pairing.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <strong>Confirm pairing</strong>
-          <p>Your bot will confirm the pairing is approved. You should now be able to chat with your bot via Discord DM. Test it with a quick message before moving on.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PART 5 -->
-  <div class="part" id="p5">
-    <div class="part-header">
-      <span class="part-num">Part 5</span>
       <h2>Invite Your Bot to the Server</h2>
     </div>
     <div class="steps">
@@ -328,6 +292,41 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
         <div class="step-body">
           <strong>Add the bot to the server</strong>
           <p>Paste the URL into your browser. Select <strong>Grow Team Mission Control</strong> from the dropdown and click <strong>Authorize</strong>. Your bot will now appear in the server's member list.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 5 -->
+  <div class="part" id="p5">
+    <div class="part-header">
+      <span class="part-num">Part 5</span>
+      <h2>Pair Discord with Your Bot</h2>
+    </div>
+    <div class="note" style="margin-bottom:16px;"><strong>Already using Discord with your bot?</strong> If you can already chat with your bot via Discord DM, skip to Part 6.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>DM your bot on Discord</strong>
+          <p>Your bot is now in the server — find it in the member list, click its name, and send it a DM. Just "hello" is fine. It will respond with a <strong>pairing code</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Approve the pairing code via another channel</strong>
+          <p>Send the code to your bot on an existing channel — Telegram, or wherever you currently chat with it:</p>
+          <pre><code>Approve this Discord pairing code: PASTE_CODE_HERE</code></pre>
+          <p style="font-size:12px;color:#8ab89a;margin-top:8px;">Pairing codes expire after 1 hour. If yours expires, just DM your bot again to get a new one.</p>
+          <div class="note"><strong>Discord is your only channel?</strong> If you haven't set up any other channel with your bot yet, contact Usman — this step requires an existing connection to approve the pairing.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Confirm pairing</strong>
+          <p>Your bot will confirm the pairing is approved. You can now chat with your bot via Discord DM — which is what you'll use in Part 7 to configure the server.</p>
         </div>
       </div>
     </div>
