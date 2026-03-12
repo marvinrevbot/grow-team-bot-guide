@@ -237,59 +237,45 @@
   <div class="part" id="p4">
     <div class="part-header">
       <span class="part-num">Part 4</span>
-      <h2>Configure Your Bot</h2>
+      <h2>Tell Your Bot to Configure Itself</h2>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <strong>Open your bot's config file</strong>
-          <p>SSH into your bot's VM and open <code>openclaw.json</code>:</p>
-          <pre><code>nano ~/.openclaw/openclaw.json</code></pre>
+          <strong>Open a DM with your bot</strong>
+          <p>Message your bot directly — via Discord DM, Telegram, or wherever you normally chat with it.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <strong>Add the guild config</strong>
-          <p>Find the <code>channels.discord</code> section and add or update it to match this structure. Replace all placeholder values with your actual IDs.</p>
-          <pre><code>{
-  "channels": {
-    "discord": {
-      "enabled": true,
-      "token": "YOUR_BOT_TOKEN",
-      "groupPolicy": "allowlist",
-      "allowBots": true,
-      "guilds": {
-        "PASTE_SERVER_ID_HERE": {
-          "requireMention": true,
-          "users": ["PASTE_YOUR_USER_ID_HERE"],
-          "channels": {
-            "PASTE_CHANNEL_ID_1": { "allow": true },
-            "PASTE_CHANNEL_ID_2": { "allow": true }
-          }
-        }
-      }
-    }
-  }
-}</code></pre>
-          <div class="note"><strong>Multiple channels:</strong> Add one line per channel ID in the <code>channels</code> block. Remove any channel lines you don't need.</div>
+          <strong>Send it this message</strong>
+          <p>Paste the message below and fill in your actual IDs (collected in Part 3):</p>
+          <pre><code>I need you to join a new Discord server. Here are the details:
+
+Server ID: PASTE_SERVER_ID_HERE
+My Discord User ID: PASTE_YOUR_USER_ID_HERE
+Channels I want you to access:
+  - PASTE_CHANNEL_ID_1
+  - PASTE_CHANNEL_ID_2
+
+Please update your Discord config to:
+1. Add this server to your guild allowlist
+2. Only allow messages from my user ID on this server
+3. Only respond in the channels listed above
+4. Only reply when you are @mentioned
+5. Allow messages from other bots (for bot-to-bot communication)
+
+Restart the gateway after making changes.</code></pre>
+          <div class="note"><strong>Tip:</strong> Your bot will handle the config changes and restart itself. It may ask you to confirm before restarting.</div>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-body">
-          <strong>Understand what each setting does</strong>
-          <table class="ref-table">
-            <thead><tr><th>Setting</th><th>What it does</th></tr></thead>
-            <tbody>
-              <tr><td>"groupPolicy": "allowlist"</td><td>Bot only responds in explicitly listed servers — ignores everything else</td></tr>
-              <tr><td>"requireMention": true</td><td>Bot only replies when directly @mentioned in a channel</td></tr>
-              <tr><td>"allowBots": true</td><td>Allows receiving messages from other bots — required for bot-to-bot communication on this server</td></tr>
-              <tr><td>"users": [...]</td><td>Only these Discord user IDs can trigger your bot in this server</td></tr>
-              <tr><td>"channels": {...}</td><td>Only listed channel IDs are accessible — all others are silently ignored</td></tr>
-            </tbody>
-          </table>
+          <strong>Confirm it worked</strong>
+          <p>Your bot should confirm the changes and let you know when it has restarted. If it asks clarifying questions, just answer them — it has everything it needs from the IDs you provided.</p>
         </div>
       </div>
     </div>
@@ -305,27 +291,19 @@
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-body">
-          <strong>Restart the gateway</strong>
-          <pre><code>openclaw gateway restart</code></pre>
-          <p>Your bot should come online within a few seconds.</p>
+          <strong>Test it</strong>
+          <p>Once your bot confirms it has restarted, go to one of your allowlisted channels and type <code>@YourBotName hello</code> — your bot should respond.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-body">
-          <strong>Test it</strong>
-          <p>In one of your allowlisted channels, type <code>@YourBotName hello</code> — your bot should respond.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
           <strong>If it doesn't respond</strong>
           <ul>
-            <li>Double-check the server ID and channel IDs (easy to mix up)</li>
-            <li>Confirm the bot was added to the server (Part 2)</li>
-            <li>Verify the JSON is valid — no missing commas or brackets</li>
-            <li>Run <code>openclaw doctor</code> on your VM for a diagnostics check</li>
+            <li>Double-check the server ID and channel IDs are correct (easy to mix up)</li>
+            <li>Make sure the bot was actually added to the server (Part 2)</li>
+            <li>Ask your bot: <em>"Can you check your Discord config and confirm which servers and channels you're set up for?"</em></li>
+            <li>Ping Usman if you're still stuck</li>
           </ul>
         </div>
       </div>
@@ -356,12 +334,8 @@
         <div class="qref-val">Developer Portal → Your App → Bot<strong>→ Reset Token</strong></div>
       </div>
       <div class="qref-item">
-        <div class="qref-label">Config file location</div>
-        <div class="qref-val"><strong>~/.openclaw/openclaw.json</strong></div>
-      </div>
-      <div class="qref-item">
-        <div class="qref-label">Restart command</div>
-        <div class="qref-val"><strong>openclaw gateway restart</strong></div>
+        <div class="qref-label">Stuck?</div>
+        <div class="qref-val">Ask your bot to check its Discord config<strong>or ping Usman</strong></div>
       </div>
     </div>
   </div>
