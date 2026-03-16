@@ -128,7 +128,6 @@
     <div class="toc-title">// Contents</div>
     <ol>
       <li><a href="#p1">Join the Server</a></li>
-      <li><a href="#p2">Connect to Your OpenClaw Agent</a></li>
       <li><a href="#p3">Create Your Discord Bot Application</a></li>
       <li><a href="#p3b">Set Your Discord Bot Token in OpenClaw</a></li>
       <li><a href="#p4">Invite Your Discord Bot to the Server</a></li>
@@ -174,43 +173,17 @@
   </div>
 
   <!-- PART 2 -->
-  <div class="part" id="p2">
+  <div class="part" id="p3">
     <div class="part-header">
       <span class="part-num">Part 2</span>
-      <h2>Connect to Your OpenClaw Agent</h2>
+      <h2>Create Your Discord Bot Application</h2>
     </div>
     <div class="note" style="margin-bottom:16px;">
       <strong>Two different "bots" — important distinction:</strong><br><br>
-      Your <strong>OpenClaw agent</strong> is the AI assistant running on your company's server — the one you already chat with (via Telegram, for example). It's your personal AI.<br><br>
-      A <strong>Discord bot application</strong> is a separate thing you'll create in the next step — it's essentially a Discord account for your OpenClaw agent, so it can join servers and respond to messages there.<br><br>
+      Your <strong>OpenClaw agent</strong> is the AI assistant you already chat with (via Telegram, for example). It's your personal AI.<br><br>
+      A <strong>Discord bot application</strong> is what you're creating here — a separate Discord identity your OpenClaw agent will use to join servers and respond to messages. Think of it as creating a Discord account for your AI.<br><br>
       In this guide: <em>"your agent"</em> = OpenClaw AI. <em>"Discord bot"</em> = the Discord application.
     </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <span class="step-title">Make sure you can reach your OpenClaw agent</span>
-          <p>Before continuing, confirm you can send a message to your OpenClaw agent and get a response — via Telegram, or whatever channel you currently use. You'll need this connection to send it setup instructions in later steps.</p>
-          <div class="note"><strong>Don't have a connection yet?</strong> Contact Usman — you'll need your agent set up and reachable before proceeding.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <span class="step-title">Send it a test message</span>
-          <p>Just say hello and confirm it responds. That's all you need for now — you'll send it more detailed instructions in Parts 4 and 7.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PART 3 -->
-  <div class="part" id="p3">
-    <div class="part-header">
-      <span class="part-num">Part 3</span>
-      <h2>Create Your Discord Bot Application</h2>
-    </div>
-    <div class="note" style="margin-bottom:16px;">This is where you create the <strong>Discord bot application</strong> — a separate Discord identity your OpenClaw agent will use to join and respond in servers. Think of it as creating a Discord account for your AI.</div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
@@ -257,10 +230,10 @@
     </div>
   </div>
 
-  <!-- PART 3b -->
+  <!-- PART 3 -->
   <div class="part" id="p3b">
     <div class="part-header">
-      <span class="part-num">Part 4</span>
+      <span class="part-num">Part 3</span>
       <h2>Set Your Discord Bot Token in OpenClaw</h2>
     </div>
     <div class="steps">
@@ -289,10 +262,10 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
     </div>
   </div>
 
-  <!-- PART 4 (was p4, now shifted to p5 in numbering but keeping id for anchor) -->
+  <!-- PART 4 -->
   <div class="part" id="p4">
     <div class="part-header">
-      <span class="part-num">Part 5</span>
+      <span class="part-num">Part 4</span>
       <h2>Invite Your Discord Bot to the Server</h2>
     </div>
     <div class="warn" style="margin-bottom:16px;"><strong>Before starting this part:</strong> You need the <strong>Manage Server</strong> permission to add a bot to Grow Team Mission Control. Ping Usman to get this role assigned before continuing.</div>
@@ -340,11 +313,11 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
   <!-- PART 5 -->
   <div class="part" id="p5">
     <div class="part-header">
-      <span class="part-num">Part 6</span>
+      <span class="part-num">Part 5</span>
       <h2>Pair Discord with Your OpenClaw Agent</h2>
     </div>
-    <div class="note" style="margin-bottom:16px;"><strong>Why is this separate from Part 4?</strong> Part 4 connected your <em>Discord bot application</em> to Discord. This part connects <em>you</em> to your OpenClaw agent via Discord — it's how your agent learns that your Discord account is trusted and allowed to give it instructions. Both steps are required.</div>
-    <div class="note" style="margin-top:8px;"><strong>Already using Discord with your OpenClaw agent?</strong> If you can already chat with your agent via Discord DM, skip to Part 7.</div>
+    <div class="note" style="margin-bottom:16px;"><strong>Why is this separate from Part 3?</strong> Part 3 connected your <em>Discord bot application</em> to Discord. This part connects <em>you</em> to your OpenClaw agent via Discord — it's how your agent learns that your Discord account is trusted and allowed to give it instructions. Both steps are required.</div>
+    <div class="note" style="margin-top:8px;"><strong>Already using Discord with your OpenClaw agent?</strong> If you can already chat with your agent via Discord DM, skip to Part 6.</div>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
@@ -388,7 +361,7 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
   <!-- PART 6 -->
   <div class="part" id="p6">
     <div class="part-header">
-      <span class="part-num">Part 7</span>
+      <span class="part-num">Part 6</span>
       <h2>Collect Your IDs</h2>
     </div>
     <div class="steps">
@@ -404,7 +377,7 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
         <div class="step-num">2</div>
         <div class="step-body">
           <span class="step-title">Server ID — already provided</span>
-          <p>The Grow Team Mission Control server ID is pre-filled in the config message in Part 8:</p>
+          <p>The Grow Team Mission Control server ID is pre-filled in the config message in Part 7:</p>
           <pre><code>1481695985137614912</code></pre>
         </div>
       </div>
@@ -422,7 +395,7 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
   <!-- PART 7 -->
   <div class="part" id="p7">
     <div class="part-header">
-      <span class="part-num">Part 8</span>
+      <span class="part-num">Part 7</span>
       <h2>Tell Your OpenClaw Agent to Configure Itself</h2>
     </div>
     <div class="steps">
@@ -437,7 +410,7 @@ channels.discord.enabled to true, then restart the gateway.</code></pre>
         <div class="step-num">2</div>
         <div class="step-body">
           <span class="step-title">Send it this message</span>
-          <p>Paste the message below and replace <code>PASTE_YOUR_USER_ID_HERE</code> with your Discord User ID from Part 7:</p>
+          <p>Paste the message below and replace <code>PASTE_YOUR_USER_ID_HERE</code> with your Discord User ID from Part 6:</p>
           <pre><code>I need you to join a new Discord server. Here are the details:
 
 Server ID: 1481695985137614912
@@ -492,7 +465,7 @@ Restart the gateway after making changes.</code></pre>
   <!-- PART 8 -->
   <div class="part" id="p8">
     <div class="part-header">
-      <span class="part-num">Part 9</span>
+      <span class="part-num">Part 8</span>
       <h2>Test It</h2>
     </div>
     <div class="steps">
@@ -509,8 +482,8 @@ Restart the gateway after making changes.</code></pre>
           <span class="step-title">If it doesn't respond</span>
           <ul>
             <li>Confirm intents are enabled in the Developer Portal (Part 2, Step 3) — especially Message Content Intent</li>
-            <li>Make sure the Discord bot was added to the server (Part 5)</li>
-            <li>Confirm the token was set correctly (Part 4) and pairing completed (Part 6)</li>
+            <li>Make sure the Discord bot was added to the server (Part 4)</li>
+            <li>Confirm the token was set correctly (Part 3) and pairing completed (Part 5)</li>
             <li>Ask your bot: <em>"Can you run openclaw doctor and tell me if there are any issues with your Discord config?"</em></li>
             <li>Ask your bot: <em>"Can you check your Discord config and confirm which servers you're set up for?"</em></li>
             <li>Ping Usman if you're still stuck</li>
@@ -523,7 +496,7 @@ Restart the gateway after making changes.</code></pre>
   <!-- PART 9 — QUICK REF -->
   <div class="part" id="p9">
     <div class="part-header">
-      <span class="part-num">Part 10</span>
+      <span class="part-num">Part 9</span>
       <h2>Quick Reference</h2>
     </div>
     <div class="qref">
