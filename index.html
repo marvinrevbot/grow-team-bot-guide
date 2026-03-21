@@ -488,6 +488,12 @@ Restart the gateway after making changes.</code></pre>
             <li>Ask your bot: <em>"Can you check your Discord config and confirm which servers you're set up for?"</em></li>
             <li>Ping Usman if you're still stuck</li>
           </ul>
+          <div class="warn" style="margin-top:16px;">
+            <strong>⚠️ Bot can't see messages from other bots?</strong><br>
+            By default, OpenClaw ignores all bot messages. If your bot needs to see messages posted by other bots in the server (e.g. for the domain map exercise or any cross-bot coordination), you need to enable <code>allowBots</code>.<br><br>
+            Ask your bot: <em>"Please set <code>channels.discord.allowBots</code> to true — this must go at the top level of the Discord config, not inside any guild entry — then restart the gateway."</em><br><br>
+            <strong>Placement matters:</strong> Putting <code>allowBots</code> inside a guild entry instead of the top-level Discord block will crash the gateway on startup. Always confirm it landed at <code>channels.discord.allowBots</code>.
+          </div>
         </div>
       </div>
     </div>
